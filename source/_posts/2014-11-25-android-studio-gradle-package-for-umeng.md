@@ -1,20 +1,23 @@
 ---
 title: "Android Studio 通过Gradle打友盟渠道包"
 date: 2014-11-25 10:09
+comments: true
 tags: ['Android', 'Gradle', 'Android Studio', 'umeng']
 ---
 
 几天前，Google终于发布了Android Studio 1.0RC 。从Google IO 2013发布至今历时一年半的时间，大大小小几十个版本的迭代总算熬出头了。从0.1.0的Preview到0.8.0的Beta再到1.0的Release Candidate，我几乎每一个版本都使用过，其中的辛酸相信用过的人都知道。前期的Android Studio不稳定，Bug很多，想要长期作为生产工具需要一定耐心，不过现在好了基本上趋于稳定了，当然问题依旧不少，出了问题网上也能搜到解决办法了。
 
-Android 5.0正式版也于近期进行了推送，相信不少的 Nexus 死忠们已经升级了，我也不例外。不知道具体什么原因，所以友盟提供的打包工具打出来的包无法在Android 5.0上安装。所以无奈之下只好自己来写打包脚本了，虽然以前也写过Gradle的打包但是由于Google改动了不少东西导致不能使用了。接下来我会简单地记录一些关键点并加以说明。
+Android 5.0正式版也于近期进行了推送，相信不少的 Nexus 死忠们已经升级了，我也不例外。不知道具体什么原因导致友盟提供的打包工具打出来的包无法在Android 5.0上安装。所以无奈之下只好自己来写打包脚本了，虽然以前也写过Gradle的打包但是由于Google改动了不少东西导致不能使用了。接下来我会简单地记录一些关键点并加以说明。
 
 <!--more-->
 
 本文不会对Android Studio以及Gradle的基本使用做说明，仅针对已经有一定基础的朋友，Android Studio以及Gradle的基本知识请移步官方[文档](http://tools.android.com/tech-docs/new-build-system/user-guide)。
 
-话不多说，首先来看看新版的Android Studio的Splash吧：
-![Android Studio 最新闪屏](/media/2014-11-25-android-studio-gradle-package-for-umeng/splash.png)
+先来看看新版的Android Studio的Splash吧：
+![Android Studio 闪屏](/media/2014-11-25-android-studio-gradle-package-for-umeng/splash.png)
 
+
+话不多说，正式开始：
 
 ### Manifest文件内容占位符
 

@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Markdown语法示例"
+title: Markdown语法示例
 date: 2014-09-17 21:28
 comments: true
-categories: Markdown
+tags: ['Markdown']
 ---
 
 - - -

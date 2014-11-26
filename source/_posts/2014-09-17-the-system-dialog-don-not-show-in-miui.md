@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "MIUI V5中系统级AlertDialog无法显示"
+title: MIUI V5中系统级AlertDialog无法显示
 date: 2014-09-17 14:44
 comments: true
-categories: Android
+tags: ['Android']
 ---
 
 在开发过程中相信很多人都有过：在`Service`或者后台Manager中弹出`Dialog`而不依赖于某个特定的`Activity` 这样的需求。通常的做法是将`Dialog`
@@ -14,7 +13,7 @@ categories: Android
 然而，这样做只对原生为经过修改的ROM有效，而对MIUI这种修改过的ROM来说就不兼容了。找了许久才发现罪魁祸首竟然是MIUI默认关闭了每个应用
 显示系统悬浮窗的功能。如图：
 
-![](/media/2014-09-17-the-system-dialog-don-not-show-in-miui/MI3-screen-shot.png)
+![小米3截屏](/media/2014-09-17-the-system-dialog-don-not-show-in-miui/MI3-screen-shot.png)
 
 ## 解决办法
 ### 1.手动打开显示悬浮窗的功能

@@ -2,7 +2,7 @@
 title: 使用Hexo搭建博客
 date: 2014-11-25 12:48
 comments: true
-categories:
+tags: ['Hexo']
 ---
 
 ## Hexo是什么

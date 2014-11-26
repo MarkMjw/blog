@@ -1,15 +1,9 @@
 ---
-layout: post
 title: "在Mac环境下通过Octopress搭建自己的Blog并托管到Github"
 date: 2014-04-28 14:02
 comments: true
-categories: Octopress Github
+tags: ['Octopress', 'Github']
 ---
-[Octopress][]
-[Octopress]: http://octopress.org
-[Github][]
-[Github]: http://github.com
-<br>
 
 本教程所有资料均来自网络或官方文档。
 
@@ -71,9 +65,10 @@ categories: Octopress Github
 
      git clone https://github.com/shashankmehta/greyshade.git .themes/greyshade
 
-     echo "\$greyshade: color;" >> sass/custom/_colors.scss //替换 color 为自定义的链接高亮颜色
+     echo "\$greyshade: color;" >> sass/custom/_colors.scss // 替换 color 为自定义的链接高亮颜色
 
      rake "install[greyshade]"
+
 
 在`_config.yml`中加入
 
