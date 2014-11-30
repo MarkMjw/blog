@@ -125,7 +125,7 @@ $ ssh-keygen -t rsa -C <你注册github时的email>
 测试shh:
 
 ```bash
-ssh git@github.com
+$ ssh git@github.com
 ```
 
 输出

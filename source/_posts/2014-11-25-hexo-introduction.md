@@ -1,9 +1,11 @@
 ---
-title: 使用Hexo搭建博客
+title: Good bye Octopress，Helo Hexo
 date: 2014-11-25 12:48
 comments: true
-tags: ['Hexo']
+tags: ['Hexo', 'Octopress']
 ---
+
+好吧，我承认我又犯贱了，这次从`Octopress`到`Hexo`。对于我来说`Octopress`有个致命的缺点：**框架略显复杂，折腾起来太过于麻烦**。之前几乎花了两天的时间才基本搞定，然而过了一段时间之后又出了一些乱七八糟的问题，又得各种折腾。无意间看到了`Hexo`，瞬间被其简洁快速的特点所打动，于是毫不犹豫的决定转至`Hexo`。
 
 ## Hexo是什么
 [Hexo](http://hexo.io/)是一个基于[Node.js](http://nodejs.org/)的静态博客程序，类似于[Jekyll](http://jekyllrb.com/)、[Octopress](http://octopress.org/)、[Wordpress](http://cn.wordpress.org/)，我们可以使用[Hexo](http://hexo.io/)创建自己的博客，托管到[Github](https://github.com)或[Heroku](http://www.heroku.com)上，绑定自己的域名，用[Markdown](http://zh.wikipedia.org/wiki/Markdown)写文章。作者是来自台湾的[@tommy351](https://github.com/hexojs/hexo),引用[@tommy351](https://github.com/hexojs/hexo)的话：
