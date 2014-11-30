@@ -5,32 +5,34 @@ comments: true
 tags: ['Android', 'Gradle', 'Android Studio', 'umeng']
 ---
 
-几天前，Google终于发布了Android Studio 1.0RC 。从Google IO 2013发布至今历时一年半的时间，大大小小几十个版本的迭代总算熬出头了。从0.1.0的Preview到0.8.0的Beta再到1.0的Release Candidate，我几乎每一个版本都使用过，其中的辛酸相信用过的人都知道。前期的Android Studio不稳定，Bug很多，想要长期作为生产工具需要一定耐心，不过现在好了基本上趋于稳定了，当然问题依旧不少，出了问题网上也能搜到解决办法了。
+几天前，Google终于发布了`Android Studio 1.0RC` 。从`Google IO 2013`发布至今历时一年半的时间，大大小小几十个版本的迭代总算熬出头了。从0.1.0的Preview到0.8.0的Beta再到1.0的Release Candidate，我几乎每一个版本都使用过，其中的辛酸相信用过的人都知道。前期的`Android Studio`不稳定，Bug很多，想要长期作为生产工具需要一定耐心，不过现在好了基本上趋于稳定了，当然问题依旧不少，出了问题网上也能搜到解决办法了。
 
-Android 5.0正式版也于近期进行了推送，相信不少的 Nexus 死忠们已经升级了，我也不例外。不知道具体什么原因导致友盟提供的打包工具打出来的包无法在Android 5.0上安装。所以无奈之下只好自己来写打包脚本了，虽然以前也写过Gradle的打包但是由于Google改动了不少东西导致不能使用了。接下来我会简单地记录一些关键点并加以说明。
+`Android 5.0`正式版也于近期进行了推送，相信不少的 `Nexus` 死忠们已经升级了，我也不例外。不知道具体什么原因导致友盟提供的打包工具打出来的包无法在`Android 5.0`上安装。所以无奈之下只好自己来写打包脚本了，虽然以前也写过`Gradle`的打包但是由于Google改动了不少东西导致不能使用了。接下来我会简单地记录一些关键点并加以说明。
 
 <!--more-->
 
-本文不会对Android Studio以及Gradle的基本使用做说明，仅针对已经有一定基础的朋友，Android Studio以及Gradle的基本知识请移步官方[文档](http://tools.android.com/tech-docs/new-build-system/user-guide)。
+本文不会对`Android Studio`以及`Gradle`的基本使用做说明，仅针对已经有一定基础的朋友，`Android Studio`以及`Gradle`的基本知识请移步官方[文档](http://tools.android.com/tech-docs/new-build-system/user-guide)。
 
-先来看看新版的Android Studio的Splash吧：
+先来看看新版的`Android Studio`的Splash吧：
 ![Android Studio 闪屏](/media/2014-11-25-android-studio-gradle-package-for-umeng/splash.png)
 
+好了下面正式开始：
 
-话不多说，正式开始：
+## Manifest文件内容占位符
 
-### Manifest文件内容占位符
+用过友盟统计的应该都知道，友盟渠道号其实通过实现定义在`AndroidManifest.xml`中`meta-data`值来进行区别的，所以我们需要通过`Manifest`文件占位符来进行设置。
 
-用过友盟统计的应该都知道，友盟渠道号其实通过实现定义在`AndroidManifest.xml`中`meta-data`值来进行区别的，所以我们需要通过Manifest文件占位符来进行设置。
+#### 1. 在`AndroidManifest`文件中定义一个占位符
+格式如下，占位符名称随意：
 
-1. 在`AndroidManifest`文件中定义一个占位符，格式如下，占位符名称随意。
 ```xml
     <meta-data
         android:name="UMENG_CHANNEL"
         android:value="${umeng_channel}" />
 ```
 
-2. 在`build.gradle`配置文件中进行替换,可以在`defaultConfig`,`buildType`,`productFlavors`中配置，比如:
+#### 2. 在`build.gradle`配置文件中进行替换
+接下来可以在`defaultConfig`,`buildType`,`productFlavors`中配置，比如:
 
 ```groovy
 defaultConfig {
@@ -38,7 +40,8 @@ defaultConfig {
 }
 ```
 
-### 渠道列表进行替换
+
+## 渠道列表进行替换
 
 现在可以来看看如何定义渠道列表了，直接看代码：
 
@@ -119,7 +122,7 @@ applicationVariants.all { variant ->
 
 好了，大功告成。但是这个过程有点长，我测试了下在我机器上打26个包大概花的时间是15分钟，所以这期间该干嘛干嘛不用老盯着它。
 
-### 最后送上完整的build.gradle文件
+## 最后送上完整的build.gradle文件
 
 ```groovy
 buildscript {
@@ -266,5 +269,5 @@ dependencies {
 }
 ```
 
-参考资料：[New build system](http://tools.android.com/tech-docs/new-build-system)
+参考资料：[Gradle guide](http://tools.android.com/tech-docs/new-build-system)
 示例下载：[gradle-samples-0.14.4.zip](https://0d9321c1-a-db1c6dfe-s-sites.googlegroups.com/a/android.com/tools/tech-docs/new-build-system/gradle-samples-0.14.4.zip?attachauth=ANoY7co4TFfLH3rAwrz4yGEaSAE34iM93QStxVucYe5OAEx3Jmg1Ac_tWHpCLj4ffIQ37szRWa-TWpAbFbo34QEkN51lx60fm_0HjTJm3vS-JeNWP59sxBi36a6yx-KeBRnU2bKYxy_ELVXFWG_43DBzqFBwY28rSAtSImZiy1LhxDBYvDMvGKAUHfHVbfSZ2SHcL7NqVXEfELdiSFptDMw0NJCLf08vSMZMnomy2_uTsN-j9t7kKmb0YNjNxJbBIK1Gl3BVSLfs&attredirects=0&d=1)

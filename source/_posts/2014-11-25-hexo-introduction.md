@@ -6,7 +6,6 @@ tags: ['Hexo']
 ---
 
 ## Hexo是什么
-
 [Hexo](http://hexo.io/)是一个基于[Node.js](http://nodejs.org/)的静态博客程序，类似于[Jekyll](http://jekyllrb.com/)、[Octopress](http://octopress.org/)、[Wordpress](http://cn.wordpress.org/)，我们可以使用[Hexo](http://hexo.io/)创建自己的博客，托管到[Github](https://github.com)或[Heroku](http://www.heroku.com)上，绑定自己的域名，用[Markdown](http://zh.wikipedia.org/wiki/Markdown)写文章。作者是来自台湾的[@tommy351](https://github.com/hexojs/hexo),引用[@tommy351](https://github.com/hexojs/hexo)的话：
 
 >一个快速、简单且功能强大的 Node.js 博客框架。
