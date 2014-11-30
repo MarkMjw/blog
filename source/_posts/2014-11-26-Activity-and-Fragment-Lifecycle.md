@@ -1,5 +1,5 @@
 ---
-title: Activity和Fragment生命周期
+title: The complete lifecycle of Activity and Fragment
 date: 2014-11-26 11:30:56
 comments: true
 tags: ['Android', 'Activity', 'Fragment']
